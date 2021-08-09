@@ -1,8 +1,8 @@
 //
 //  HomeCoordinator.swift
-//  MedlandSpain
+//  MarvelApp-iOS
 //
-//  Created by Gerard Mata Carrera on 25/2/21.
+//  Created by Gerard Mata on 9/8/21.
 //
 
 import UIKit
