@@ -11,4 +11,6 @@ import Moya
 protocol CharactersRepository: BaseRepository {
     func characters(request: CharactersRequest,
                     completion: @escaping (Result<Characters, CustomError>) -> Void) -> Cancellable
+    func charactersDetails(request: CharactersDetailsRequest,
+                    completion: @escaping (Result<CharactersDetails, CustomError>) -> Void) -> Cancellable
 }

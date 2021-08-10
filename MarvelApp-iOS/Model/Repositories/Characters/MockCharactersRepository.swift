@@ -13,4 +13,9 @@ class MockCharactersRepository: DefaultRepository, CharactersRepository {
                     completion: @escaping (Result<Characters, CustomError>) -> Void) -> Cancellable {
         return MockCancellable()
     }
+    
+    func charactersDetails(request: CharactersDetailsRequest,
+                    completion: @escaping (Result<CharactersDetails, CustomError>) -> Void) -> Cancellable {
+        return MockCancellable()
+    }
 }

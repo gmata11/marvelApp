@@ -10,6 +10,7 @@ import Moya
 
 enum CharactersServices {
     case characters(request: CharactersRequest)
+    case charactersDetails(request: CharactersDetailsRequest)
 }
 
 // MARK: - TargetType Protocol Implementation.
@@ -28,7 +29,8 @@ extension CharactersServices: TargetType, AccessTokenAuthorizable {
         switch self {
         case .characters:
             return "/characters"
-//            return "/characters/\(request.id)"
+        case .charactersDetails(let request):
+            return "/characters/\(request.id)"
         }
     }
 
@@ -38,7 +40,7 @@ extension CharactersServices: TargetType, AccessTokenAuthorizable {
 
     var task: Task {
         switch self {
-        case .characters:
+        case .characters, .charactersDetails:
             return .requestParameters(parameters: requestParameters, encoding: URLEncoding.default)
         }
     }
@@ -46,6 +48,8 @@ extension CharactersServices: TargetType, AccessTokenAuthorizable {
     var requestParameters: [String: Any] {
         switch self {
         case .characters(let request):
+            return request.dictionary() ?? [:]
+        case .charactersDetails(let request):
             return request.dictionary() ?? [:]
         }
     }

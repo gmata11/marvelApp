@@ -18,4 +18,13 @@ class DefaultCharactersRepository: DefaultRepository, CharactersRepository {
         }
         return cancellable
     }
+    
+    func charactersDetails(request: CharactersDetailsRequest,
+                    completion: @escaping (Result<CharactersDetails, CustomError>) -> Void) -> Cancellable {
+        let provider: MoyaProvider<CharactersServices> = defaultProvider()
+        let cancellable = provider.request(.charactersDetails(request: request)) { result in
+            self.manageResult(result: result, completion: completion)
+        }
+        return cancellable
+    }
 }

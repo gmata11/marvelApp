@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import CryptoKit
 import var CommonCrypto.CC_MD5_DIGEST_LENGTH
 import func CommonCrypto.CC_MD5
 import typealias CommonCrypto.CC_LONG
@@ -36,13 +35,6 @@ final class HomeMarvelPresenter: CharactersUseCase {
         let md5Hex = hash.map { String(format: "%02hhx", $0) }.joined()
         request = CharactersRequest(apikey: Constants.publicKey, hash: md5Hex, ts: ts)
         runCharactersUseCase(request: request)
-    }
-    
-    func hash(data: String) -> String {
-        let hash = Insecure.MD5.hash(data: data.data(using: .utf8) ?? Data())
-        return hash.map {
-            String(format: "%02hhx", $0)
-        }.joined()
     }
     
     func MD5(string: String) -> Data {
