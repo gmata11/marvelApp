@@ -3,13 +3,16 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeMarvelViewController" customModule="MarvelApp_iOS" customModuleProvider="target">
             <connections>
+                <outlet property="marvelCollectionView" destination="IaQ-Wj-WPJ" id="fM7-C2-Kie"/>
+                <outlet property="marvelSegmentedControl" destination="OMS-Ej-UZs" id="Abl-yA-RRb"/>
+                <outlet property="marvelTableView" destination="CfE-0k-3os" id="wK0-n8-wKV"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,14 +20,103 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Z4m-aD-r9l">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wk4-F2-DQv">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="10"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="10" id="728-ry-sBV"/>
+                            </constraints>
+                        </view>
+                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h8E-3n-NVn">
+                            <rect key="frame" x="0.0" y="10" width="414" height="50"/>
+                            <subviews>
+                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="OMS-Ej-UZs">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="51"/>
+                                    <color key="backgroundColor" name="BlackMarvelOpacity"/>
+                                    <segments>
+                                        <segment title="MarvelCollection "/>
+                                        <segment title="MarvelTable"/>
+                                    </segments>
+                                    <color key="selectedSegmentTintColor" name="RedMarvel"/>
+                                    <connections>
+                                        <action selector="SegmentedChanged:" destination="-1" eventType="valueChanged" id="vpc-It-fEA"/>
+                                    </connections>
+                                </segmentedControl>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="3UZ-u3-nVt"/>
+                            </constraints>
+                        </stackView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wX2-rs-OUu">
+                            <rect key="frame" x="0.0" y="60" width="414" height="10"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="10" id="5nL-FC-mL6"/>
+                            </constraints>
+                        </view>
+                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k9g-v9-b16">
+                            <rect key="frame" x="0.0" y="70" width="414" height="748"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mg2-AT-MR6">
+                                    <rect key="frame" x="0.0" y="0.0" width="15" height="748"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="15" id="1Dd-qm-jda"/>
+                                    </constraints>
+                                </view>
+                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="IaQ-Wj-WPJ">
+                                    <rect key="frame" x="15" y="0.0" width="384" height="748"/>
+                                    <color key="backgroundColor" name="BlackMarvel"/>
+                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="iEA-Ys-foa">
+                                        <size key="itemSize" width="128" height="128"/>
+                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    </collectionViewFlowLayout>
+                                </collectionView>
+                                <tableView hidden="YES" clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CfE-0k-3os">
+                                    <rect key="frame" x="399" y="0.0" width="0.0" height="748"/>
+                                    <color key="backgroundColor" name="BlackMarvel"/>
+                                </tableView>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZLw-b0-MFw">
+                                    <rect key="frame" x="399" y="0.0" width="15" height="748"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="15" id="yMp-Uy-bC5"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" name="BlackMarvel"/>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </stackView>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemRedColor"/>
+            <color key="backgroundColor" name="BlackMarvel"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Z4m-aD-r9l" secondAttribute="trailing" id="0Ay-sP-BYr"/>
+                <constraint firstItem="Z4m-aD-r9l" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="A4Q-uc-Vt7"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Z4m-aD-r9l" secondAttribute="bottom" id="bRV-1Y-CAH"/>
+                <constraint firstItem="Z4m-aD-r9l" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="fPX-v4-wl1"/>
+            </constraints>
             <point key="canvasLocation" x="112" y="96"/>
         </view>
     </objects>
     <resources>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <namedColor name="BlackMarvel">
+            <color red="0.12549248339999999" green="0.12548607589999999" blue="0.12549039719999999" alpha="0.63404375314712524" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="BlackMarvelOpacity">
+            <color red="0.12549248339999999" green="0.12548607589999999" blue="0.12549039719999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="RedMarvel">
+            <color red="0.85250729319999996" green="0.22101560240000001" blue="0.1921157241" alpha="0.62577313184738159" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
     </resources>
 </document>

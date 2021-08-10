@@ -50,12 +50,25 @@ final class HomeCoordinator: Coordinator {
         window.setRootViewController(navigationController, animationOptions: .transitionCrossDissolve)
         window.makeKeyAndVisible()
     }
+    
+    private func showCharacterDetail() {
+        let presenter = CharacterDetailPresenter(repositoryFactory: repositoryFactory)
+        let controller = CharacterDetailViewController(repositoryFactory: repositoryFactory, presenter: presenter)
+        controller.delegate = self
+        presenter.delegate = controller
+
+        navigationController.pushViewController(controller, animated: true)
+    }
 
 }
 
 // MARK: - StartViewController Delegate.
 
 extension HomeCoordinator: HomeMarvelViewControllerDelegate {
-    
+    func didPressCharacter(in viewController: HomeMarvelViewController) {
+        showCharacterDetail()
+    }
 }
+
+extension HomeCoordinator: CharacterDetailViewControllerDelegate {}
 

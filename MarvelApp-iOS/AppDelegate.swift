@@ -33,3 +33,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+extension UINavigationController {
+    open override func viewWillLayoutSubviews() {
+        navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    }
+}
+
