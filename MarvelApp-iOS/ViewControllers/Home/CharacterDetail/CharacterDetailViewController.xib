@@ -3,13 +3,16 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CharacterDetailViewController" customModule="MarvelApp_iOS" customModuleProvider="target">
             <connections>
+                <outlet property="characterImage" destination="SMB-9l-Oe0" id="fm1-Nd-wlF"/>
+                <outlet property="characterName" destination="7MZ-xJ-3j5" id="l7F-9g-cJt"/>
+                <outlet property="comicsTableView" destination="9cK-He-XnC" id="tel-qc-OKK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -39,8 +42,8 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="Her-VS-8eb"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="27"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Izf-lE-Z7b">
@@ -50,21 +53,22 @@
                                 <constraint firstAttribute="height" constant="20" id="wC4-wN-tMs"/>
                             </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mOM-GR-52d">
-                            <rect key="frame" x="0.0" y="340" width="414" height="20.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comics" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mOM-GR-52d">
+                            <rect key="frame" x="0.0" y="340" width="414" height="26.5"/>
+                            <color key="backgroundColor" name="RedMarvel"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HjL-oq-gw1">
-                            <rect key="frame" x="0.0" y="360.5" width="414" height="457.5"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </view>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9cK-He-XnC">
+                            <rect key="frame" x="0.0" y="366.5" width="414" height="451.5"/>
+                            <color key="backgroundColor" name="BlackMarvel"/>
+                        </tableView>
                     </subviews>
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" name="BlackMarvel"/>
             <constraints>
                 <constraint firstItem="Vyg-Tj-1iM" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="0kP-rB-LsC"/>
                 <constraint firstItem="Vyg-Tj-1iM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="D9o-zw-sT7"/>
@@ -76,8 +80,11 @@
     </objects>
     <resources>
         <image name="Marvel" width="1600" height="643"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="BlackMarvel">
+            <color red="0.12549248339999999" green="0.12548607589999999" blue="0.12549039719999999" alpha="0.63404375314712524" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="RedMarvel">
+            <color red="0.85250729319999996" green="0.22101560240000001" blue="0.1921157241" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
     </resources>
 </document>

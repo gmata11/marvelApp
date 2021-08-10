@@ -51,8 +51,8 @@ final class HomeCoordinator: Coordinator {
         window.makeKeyAndVisible()
     }
     
-    private func showCharacterDetail() {
-        let presenter = CharacterDetailPresenter(repositoryFactory: repositoryFactory)
+    private func showCharacterDetail(characterId: Int) {
+        let presenter = CharacterDetailPresenter(repositoryFactory: repositoryFactory, characterId: characterId)
         let controller = CharacterDetailViewController(repositoryFactory: repositoryFactory, presenter: presenter)
         controller.delegate = self
         presenter.delegate = controller
@@ -65,8 +65,8 @@ final class HomeCoordinator: Coordinator {
 // MARK: - StartViewController Delegate.
 
 extension HomeCoordinator: HomeMarvelViewControllerDelegate {
-    func didPressCharacter(in viewController: HomeMarvelViewController) {
-        showCharacterDetail()
+    func didPressCharacter(characterId: Int, in viewController: HomeMarvelViewController) {
+        showCharacterDetail(characterId: characterId)
     }
 }
 

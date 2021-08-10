@@ -16,10 +16,12 @@ final class CharacterDetailPresenter {
     // MARK: - Properties.
     weak var delegate: CharacterDetailPresenterDelegate?
     private let repositoryFactory: RepositoryFactory
+    var characterId: Int
     
     // MARK: - Init.
-    init(repositoryFactory: RepositoryFactory) {
+    init(repositoryFactory: RepositoryFactory, characterId: Int) {
         self.repositoryFactory = repositoryFactory
+        self.characterId = characterId
     }
 
 }

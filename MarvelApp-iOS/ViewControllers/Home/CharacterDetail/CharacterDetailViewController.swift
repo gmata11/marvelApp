@@ -13,6 +13,9 @@ protocol CharacterDetailViewControllerDelegate: AnyObject {
 
 class CharacterDetailViewController: BaseViewController {
     // MARK: - IBOutlets.
+    @IBOutlet weak var characterImage: UIImageView!
+    @IBOutlet weak var characterName: UILabel!
+    @IBOutlet weak var comicsTableView: UITableView!
     
     
     // MARK: - Properties.

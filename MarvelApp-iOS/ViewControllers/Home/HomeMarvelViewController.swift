@@ -8,7 +8,7 @@
 import UIKit
 
 protocol HomeMarvelViewControllerDelegate: AnyObject {
-    func didPressCharacter(in viewController: HomeMarvelViewController)
+    func didPressCharacter(characterId: Int, in viewController: HomeMarvelViewController)
 }
 
 class HomeMarvelViewController: BaseViewController {
@@ -136,7 +136,7 @@ extension HomeMarvelViewController: UICollectionViewDataSource, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.didPressCharacter(in: self)
+        delegate?.didPressCharacter(characterId: presenter.characters?.data.results[indexPath.row].id ?? 0, in: self)
     }
 }
 
@@ -155,7 +155,7 @@ extension HomeMarvelViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.didPressCharacter(in: self)
+        delegate?.didPressCharacter(characterId: presenter.characters?.data.results[indexPath.row].id ?? 0, in: self)
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
