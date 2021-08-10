@@ -1,8 +1,8 @@
 //
 //  HomeCoordinator.swift
-//  MedlandSpain
+//  MarvelApp-iOS
 //
-//  Created by Gerard Mata Carrera on 25/2/21.
+//  Created by Gerard Mata on 9/8/21.
 //
 
 import UIKit
@@ -50,12 +50,25 @@ final class HomeCoordinator: Coordinator {
         window.setRootViewController(navigationController, animationOptions: .transitionCrossDissolve)
         window.makeKeyAndVisible()
     }
+    
+    private func showCharacterDetail(characterId: Int) {
+        let presenter = CharacterDetailPresenter(repositoryFactory: repositoryFactory, characterId: characterId)
+        let controller = CharacterDetailViewController(repositoryFactory: repositoryFactory, presenter: presenter)
+        controller.delegate = self
+        presenter.delegate = controller
+
+        navigationController.pushViewController(controller, animated: true)
+    }
 
 }
 
 // MARK: - StartViewController Delegate.
 
 extension HomeCoordinator: HomeMarvelViewControllerDelegate {
-    
+    func didPressCharacter(characterId: Int, in viewController: HomeMarvelViewController) {
+        showCharacterDetail(characterId: characterId)
+    }
 }
+
+extension HomeCoordinator: CharacterDetailViewControllerDelegate {}
 

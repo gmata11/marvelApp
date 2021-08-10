@@ -1,0 +1,15 @@
+// Compilation and standard options
+SWIFT_ACTIVE_COMPILATION_CONDITIONS = $(inherited)
+SWIFT_ACTIVE_COMPILATION_CONDITIONS[config=*Debug][sdk=*][arch=*] = $(inherited) DEBUG
+COCOAPODS_PARALLEL_CODE_SIGN = true
+
+ASSETCATALOG_COMPILER_APPICON_NAME = AppIconDevelopment
+PRODUCT_BUNDLE_IDENTIFIER = gmata.MarvelApp-iOS
+PRODUCT_NAME = MarvelApp
+APP_VERSION = 1.0.0
+SWIFT_ACTIVE_COMPILATION_CONDITIONS = $(inherited) PRODUCTION
+
+DEBUG_INFORMATION_FORMAT = dwarf-with-dsym
+
+// API
+API_URL = gateway.marvel.com:443/v1/public

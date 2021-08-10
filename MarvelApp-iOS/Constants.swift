@@ -19,7 +19,12 @@ struct Constants {
     static let privacyUrl = ""
     static let termsUrl = ""
     
-    static let baseAPIURL = "https://" + Configuration.valueIfPresent(for: "API_URL")!
+    // MARK: Keys
+    static let publicKey = "425efc29213fe4aae7a5e9fad2050585"
+    static let privateKey = "398a17fe03778e948c7effd8950d7e9e37d02b42"
+    
+    static let apiURL: String = Configuration.valueIfPresent(for: "API_URL")!
+    static let baseAPIURL = "https://" + apiURL
     
     // MARK: Notifications
     static let tokenExpiredNotificationName = NSNotification.Name("tokenExpired")

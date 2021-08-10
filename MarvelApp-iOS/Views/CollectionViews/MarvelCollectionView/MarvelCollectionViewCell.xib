@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MarvelCollectionViewCell" customModule="MarvelApp_iOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="165" height="146"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="165" height="146"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y0N-rf-aRb">
+                        <rect key="frame" x="0.0" y="0.0" width="165" height="146"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="IlU-9d-EyE">
+                                <rect key="frame" x="0.0" y="0.0" width="165" height="146"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Marvel" translatesAutoresizingMaskIntoConstraints="NO" id="srR-mO-lIV">
+                                        <rect key="frame" x="0.0" y="0.0" width="165" height="130"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="130" id="gq6-bu-3Fh"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="tGL-Ln-0wz">
+                                        <rect key="frame" x="0.0" y="130" width="165" height="16"/>
+                                        <color key="backgroundColor" name="RedMarvel"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" name="BackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="IlU-9d-EyE" secondAttribute="trailing" id="Zk0-46-yjn"/>
+                            <constraint firstItem="IlU-9d-EyE" firstAttribute="leading" secondItem="y0N-rf-aRb" secondAttribute="leading" id="bad-X2-OAe"/>
+                            <constraint firstAttribute="bottom" secondItem="IlU-9d-EyE" secondAttribute="bottom" id="hgw-lW-g0x"/>
+                            <constraint firstItem="IlU-9d-EyE" firstAttribute="top" secondItem="y0N-rf-aRb" secondAttribute="top" id="tzN-0Q-Oam"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="y0N-rf-aRb" secondAttribute="bottom" id="DoW-xt-daq"/>
+                <constraint firstItem="y0N-rf-aRb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Z5U-uL-Nkb"/>
+                <constraint firstItem="y0N-rf-aRb" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="iSi-Bm-0AO"/>
+                <constraint firstAttribute="trailing" secondItem="y0N-rf-aRb" secondAttribute="trailing" id="jf4-F2-UkA"/>
+            </constraints>
+            <connections>
+                <outlet property="image" destination="srR-mO-lIV" id="kR2-aN-EdY"/>
+                <outlet property="name" destination="tGL-Ln-0wz" id="Eij-zf-Wl9"/>
+            </connections>
+            <point key="canvasLocation" x="138.40579710144928" y="89.732142857142847"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="Marvel" width="1600" height="643"/>
+        <namedColor name="BackgroundColor">
+            <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="RedMarvel">
+            <color red="0.85250729319999996" green="0.22101560240000001" blue="0.1921157241" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>

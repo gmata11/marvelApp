@@ -1,5 +1,5 @@
 //
-//  HomeMarvelPresenter.swift
+//  CharacterDetailPresenter.swift
 //  MarvelApp-iOS
 //
 //  Created by Gerard Mata on 9/8/21.
@@ -10,31 +10,33 @@ import var CommonCrypto.CC_MD5_DIGEST_LENGTH
 import func CommonCrypto.CC_MD5
 import typealias CommonCrypto.CC_LONG
 
-protocol HomeMarvelPresenterDelegate: CharactersUseCaseDelegate {
+protocol CharacterDetailPresenterDelegate: CharactersDetailsUseCaseDelegate {
 
 }
 
-final class HomeMarvelPresenter: CharactersUseCase {
+final class CharacterDetailPresenter: CharactersDetailsUseCase {
 
     // MARK: - Properties.
-    weak var delegate: HomeMarvelPresenterDelegate?
+    weak var delegate: CharacterDetailPresenterDelegate?
     private let repositoryFactory: RepositoryFactory
+    var characterId: Int
     var charactersRepository: CharactersRepository
-    var characters: Characters?
-    var request: CharactersRequest = CharactersRequest(apikey: "", hash: "", ts: "")
+    var characters: CharactersDetails?
+    var request: CharactersDetailsRequest = CharactersDetailsRequest(apikey: "", hash: "", ts: "", id: 0)
     
     // MARK: - Init.
-    init(repositoryFactory: RepositoryFactory) {
+    init(repositoryFactory: RepositoryFactory, characterId: Int) {
         self.repositoryFactory = repositoryFactory
-        charactersRepository = repositoryFactory.repository()!
+        self.charactersRepository = repositoryFactory.repository()!
+        self.characterId = characterId
     }
     
-    func fetchCharacters() {
+    func fetchCharactersDetails() {
         let ts = String(Date().timeIntervalSince1970)
         let hash = MD5(string: "\(ts)\(Constants.privateKey)\(Constants.publicKey)")
         let md5Hex = hash.map { String(format: "%02hhx", $0) }.joined()
-        request = CharactersRequest(apikey: Constants.publicKey, hash: md5Hex, ts: ts)
-        runCharactersUseCase(request: request)
+        request = CharactersDetailsRequest(apikey: Constants.publicKey, hash: md5Hex, ts: ts, id: characterId)
+        runCharactersDetailsUseCase(request: request)
     }
     
     func MD5(string: String) -> Data {
@@ -56,13 +58,12 @@ final class HomeMarvelPresenter: CharactersUseCase {
 
 }
 
-extension HomeMarvelPresenter: CharactersUseCaseDelegate {
-    func didStartCharactersUseCase() {
-        delegate?.didStartCharactersUseCase()
+extension CharacterDetailPresenter: CharactersDetailsUseCaseDelegate {
+    func didStartCharactersDetailsUseCase() {
+        delegate?.didStartCharactersDetailsUseCase()
     }
     
-    func didEndCharactersUseCase(with error: CustomError?) {
-        delegate?.didEndCharactersUseCase(with: error)
+    func didEndCharactersDetailsUseCase(with error: CustomError?) {
+        delegate?.didEndCharactersDetailsUseCase(with: error)
     }
-    
 }
