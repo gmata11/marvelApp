@@ -17,11 +17,11 @@ class HomeMarvelViewController: BaseViewController {
     @IBOutlet weak var marvelTableView: UITableView!
     @IBOutlet weak var marvelCollectionView: UICollectionView!
     
-    
     // MARK: - Properties.
     weak var delegate: HomeMarvelViewControllerDelegate?
     private let presenter: HomeMarvelPresenter
     var collection: Bool = true
+    
     // MARK: - Init.
     init(repositoryFactory: RepositoryFactory,
          presenter: HomeMarvelPresenter) {
@@ -34,10 +34,8 @@ class HomeMarvelViewController: BaseViewController {
     }
 
     // MARK: - Life Cycle.
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureViews()
         configureCollectionView()
         configureTableView()
         translateInterface()
@@ -45,13 +43,11 @@ class HomeMarvelViewController: BaseViewController {
         presenter.fetchCharacters()
     }
     
-    // MARK: - Functions.
-    func configureViews() {
-    }
-    
     // MARK: - Private.
     private func translateInterface() {
         self.navigationItem.title = "HOME_MARVEL_TITLE".localized()
+        marvelSegmentedControl.setTitle("HOME_MARVEL_SEGMENTED_COLLECTION".localized(), forSegmentAt: 0)
+        marvelSegmentedControl.setTitle("HOME_MARVEL_SEGMENTED_TABLE".localized(), forSegmentAt: 1)
     }
     
     private func configureCollectionView() {
@@ -98,7 +94,6 @@ class HomeMarvelViewController: BaseViewController {
     @IBAction func SegmentedChanged(_ sender: UISegmentedControl) {
         changeHeroesViews()
     }
-    
     
 }
 

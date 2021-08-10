@@ -16,12 +16,13 @@ class CharacterDetailViewController: BaseViewController {
     @IBOutlet weak var characterImage: UIImageView!
     @IBOutlet weak var characterName: UILabel!
     @IBOutlet weak var comicsTableView: UITableView!
-    
+    @IBOutlet weak var comicsTitle: UILabel!
     
     // MARK: - Properties.
     weak var delegate: CharacterDetailViewControllerDelegate?
     private let presenter:  CharacterDetailPresenter
     var collection: Bool = true
+    
     // MARK: - Init.
     init(repositoryFactory: RepositoryFactory,
          presenter: CharacterDetailPresenter) {
@@ -34,7 +35,6 @@ class CharacterDetailViewController: BaseViewController {
     }
 
     // MARK: - Life Cycle.
-
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViews()
@@ -52,6 +52,7 @@ class CharacterDetailViewController: BaseViewController {
     // MARK: - Private.
     private func translateInterface() {
         self.navigationItem.title = "DETAIL_MARVEL_TITLE".localized()
+        comicsTitle.text = "DETAIL_MARVEL_COMIC_TITLE".localized()
     }
     
     private func setImage(path: String, xtension: String) {
@@ -74,13 +75,11 @@ class CharacterDetailViewController: BaseViewController {
         comicsTableView.register(cellNib, forCellReuseIdentifier: CharacterComicsTableViewCell.className)
     }
 
-        
     // MARK: - Events.
 
-    
 }
 
-// MARK: - HomeMarvelPresenter Delegate
+// MARK: - CharacterDetailPresenter Delegate
 extension CharacterDetailViewController: CharacterDetailPresenterDelegate {
     func didStartCharactersDetailsUseCase() {
         CustomLoader.shared.show()
@@ -92,7 +91,6 @@ extension CharacterDetailViewController: CharacterDetailPresenterDelegate {
         comicsTableView.reloadData()
     }
     
-
 }
 
 // MARK: - TableView Delegate

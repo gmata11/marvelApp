@@ -13,6 +13,7 @@
                 <outlet property="characterImage" destination="SMB-9l-Oe0" id="fm1-Nd-wlF"/>
                 <outlet property="characterName" destination="7MZ-xJ-3j5" id="l7F-9g-cJt"/>
                 <outlet property="comicsTableView" destination="9cK-He-XnC" id="tel-qc-OKK"/>
+                <outlet property="comicsTitle" destination="mOM-GR-52d" id="2L7-GA-31A"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -81,10 +82,10 @@
     <resources>
         <image name="Marvel" width="1600" height="643"/>
         <namedColor name="BlackMarvel">
-            <color red="0.12549248339999999" green="0.12548607589999999" blue="0.12549039719999999" alpha="0.63404375314712524" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.125" green="0.125" blue="0.125" alpha="0.63400000333786011" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="RedMarvel">
-            <color red="0.85250729319999996" green="0.22101560240000001" blue="0.1921157241" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.8529999852180481" green="0.22100000083446503" blue="0.19200000166893005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>
